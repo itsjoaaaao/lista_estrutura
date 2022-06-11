@@ -1,4 +1,4 @@
-//Aluno: Jo„o Palo
+//Aluno: Jo√£o Paulo
 #include <stdio.h>
 #include <stdlib.h>
 #include "circulardadox.h" 
@@ -157,7 +157,7 @@ int consulta_lista_pos(Lista* li, int pos, struct aluno *al){
     if(li == NULL || (*li) == NULL || pos <= 0)
         return 0;
     Elem *no = *li;//no aponta para o inicio
-    int i = 1;//igual a 1 pq as pos comeÁa ppor 1
+    int i = 1;//igual a 1 pq as pos come√ßa ppor 1
     while(no->prox != (*li) && i < pos){//percorre a lista enquanto for diferente do inicio e o i menor q a pos
         no = no->prox;//percorre
         i++;//incrementa no i
@@ -191,12 +191,12 @@ int insere_lista_final(Lista* li, struct aluno al){
     if(no == NULL)
         return 0;
     no->dados = al;//recebendo os dados da struct inserida
-    if((*li) == NULL){//lista vazia: insere inÌcio
+    if((*li) == NULL){//lista vazia: insere in√≠cio
         *li = no;//o inicio aponta para o primeiro elemento
         no->prox = no;//e o primeiro elemento aponta para ele msm pq eh circular
     }else{
         Elem *aux = *li;//aux recebe o primeiro da lista
-        while(aux->prox != (*li)){//percorrendo a lista atÈ achar o ultimo elemento, enquando o aux for diferente do inicio
+        while(aux->prox != (*li)){//percorrendo a lista at√© achar o ultimo elemento, enquando o aux for diferente do inicio
             aux = aux->prox;//percorrendo a lista
         }
         aux->prox = no;//o "ultimo elemento" aponta para o novo elemento
@@ -212,7 +212,7 @@ int insere_lista_inicio(Lista* li, struct aluno al){
     if(no == NULL)
         return 0;
     no->dados = al;//strcut dados recebe os dados da struct inserida
-    if((*li) == NULL){//se a lista tiver vazia: insere inÌcio
+    if((*li) == NULL){//se a lista tiver vazia: insere in√≠cio
         *li = no;//no recebe o inicio
         no->prox = no;//e o no recebe ele mesmo porque eh circular
     }else{//se houver elementos na lista
@@ -234,15 +234,15 @@ int insere_lista_ordenada(Lista* li, struct aluno al){//TERMINAR
     if(no == NULL)
         return 0;
     no->dados = al;//copia os dados da struct inserida para a struct dados
-    if((*li) == NULL){//insere inÌcio, se a lista tiver vazia
+    if((*li) == NULL){//insere in√≠cio, se a lista tiver vazia
         *li = no;//o primeiro elemento recebe o inicio
         no->prox = no;//o elemento aponta para ele msm pq eh circular
         return 1;
     }
     else{//se houver dados na lista
-        if((*li)->dados.matricula > al.matricula){//insere inÌcio, se a matricula ja existente for maior da inserida
+        if((*li)->dados.matricula > al.matricula){//insere in√≠cio, se a matricula ja existente for maior da inserida
             Elem *atual = *li;//atual recebe o inicio
-            while(atual->prox != (*li))//procura o ˙ltimo elemento
+            while(atual->prox != (*li))//procura o √∫ltimo elemento
                 atual = atual->prox;//percorrendo a lista
             no->prox = *li;//novo elemento aponta para o "primeiro"
             atual->prox = no;//novo elemento recebe o no
@@ -294,7 +294,7 @@ int remove_lista_final(Lista* li){
         return 1;
     }
     Elem *ant, *no = *li;//o no aponta para o primeiro elemento
-    while(no->prox != (*li)){//procura o ˙ltimo elem
+    while(no->prox != (*li)){//procura o √∫ltimo elem
         ant = no;//elem ant passar ser o no
         no = no->prox;//no aponto pro prox
     }
@@ -309,14 +309,14 @@ int remove_lista(Lista* li, int mat){
     if((*li) == NULL)//lista vazia
         return 0;
     Elem *no = *li;
-    if(no->dados.matricula == mat){//remover do inÌcio
+    if(no->dados.matricula == mat){//remover do in√≠cio
         if(no == no->prox){//lista fica vaza
             free(no);
             *li = NULL;
             return 1;
         }else{
             Elem *ult = *li;
-            while(ult->prox != (*li))//procura o ˙ltimo
+            while(ult->prox != (*li))//procura o √∫ltimo
                 ult = ult->prox;
             ult->prox = (*li)->prox;
             *li = (*li)->prox;
@@ -330,7 +330,7 @@ int remove_lista(Lista* li, int mat){
         ant = no;
         no = no->prox;
     }
-    if(no == *li)//n„o encontrado
+    if(no == *li)//n√£o encontrado
         return 0;
 
     ant->prox = no->prox;
